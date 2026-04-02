@@ -4,12 +4,17 @@
     <body xmlns="http://www.w3.org/1999/xhtml">
       <meta content='width=device-width, initial-scale=1.0' name='viewport'></meta>
       <iframe style="position:fixed; top:0; left:0; bottom:0; right:0; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999;" id="test"></iframe>
-      <script>let l = `
+      <script>
+
+        let l = `
         \x3Cscript>
         launch();
         function launch() {
           try {
-            fetch("https://cdn.jsdelivr.net/gh/CloudMoonApp/simple@main/run-2604021143.html?t="+Date.now()).then(response => response.text())
+            const params = new URLSearchParams(window.location.search);
+            params.set("t", Date.now());
+            const targetUrl = "https://cdn.jsdelivr.net/gh/CloudMoonApp/simple@main/run-2604021154.html"+ "?" + params.toString();
+            fetch(targetUrl).then(response => response.text())
               .then(html => {
                 document.open();
                 document.write(html);
