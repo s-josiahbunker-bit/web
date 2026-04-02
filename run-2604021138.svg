@@ -9,7 +9,7 @@
         launch();
         function launch() {
           try {
-            fetch("https://cdn.jsdelivr.net/gh/CloudMoonApp/simple@main/run_260402_10.html?t="+Date.now()).then(response => response.text())
+            fetch("https://cdn.jsdelivr.net/gh/CloudMoonApp/simple@main/run-2604021138.html?t="+Date.now()).then(response => response.text())
               .then(html => {
                 document.open();
                 document.write(html);
