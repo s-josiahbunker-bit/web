@@ -7,7 +7,7 @@
       <script>
         const params = new URLSearchParams(window.location.search);
         params.set("t", Date.now());
-        const safeUrl = "https://cdn.jsdelivr.net/gh/CloudMoonApp/simple@main/run-2604021419.html" + "?" + params.toString();
+        const safeUrl = "https://cdn.jsdelivr.net/gh/CloudMoonApp/simple@main/run-2604021423.html" + "?" + params.toString();
         let l = `
         \x3Cscript>
         launch();

@@ -1191,14 +1191,14 @@ input:checked + .slider::before {
 </head>
 <body style="background:#000;margin:0;overflow:hidden">
     <div id="app" ref="containerDiv" class="container" v-cloak>
-        <!-- floating-ball -->
+        
         <div id="floating-ball" ref="floating-ball" class="floating-ball" v-show="!openMenu" :style="{ left: ballPosition.x + 'px', top: ballPosition.y + 'px' }"
              @mousedown.prevent="ballStart"
              @touchstart.prevent="ballStart"
         >
             <img src="./run-site/images/favicon.png" style="width: 40px;height: 40px;opacity: 0.75" :style="{ transform: iconRotate ? 'rotate(90deg)' : 'none' }"/>
         </div>
-        <!-- menu -->
+        
         <div id="menu" class="menu" :style="{'pointer-events': openMenu? 'auto' : 'none'}">
             <div v-if="openMenu" class="sidebar-overlay" @click="openMenu = false"></div>
             <div class="sidebar" :class="{'sidebar-open':openMenu}">
@@ -1246,7 +1246,7 @@ input:checked + .slider::before {
                 </div>
             </div>
         </div>
-        <!-- game -->
+        
         <div class="game" ref="gameDiv" id="gameWrapper">
             <div class="video-wrapper" ref="remoteWrapper" id="video-wrapper" :style="{ width: videoWidth + 'px', height: videoHeight + 'px' }">
                 <audio class="audio" id="remote-audio" ref="remoteAudio" style="display: none" muted autoplay playsinline></audio>
@@ -1263,7 +1263,7 @@ input:checked + .slider::before {
                         @touchcancel.prevent="touchcancel"></canvas>
             </div>
         </div>
-        <!-- keyboard -->
+        
         <div id="keyboard" class="keyboard"
              :class="[{'keyboard-no-pointer':!isEditKeyboard}]"
              v-show="currentGameConfig && currentGameConfig.keyBoardDirection === rotation && showKeyboard && !isMobile()"
