@@ -7,38 +7,19 @@
       <script>
         const params = new URLSearchParams(window.location.search);
         params.set("t", Date.now());
-        const safeUrl = "https://cdn.jsdelivr.net/gh/CloudMoonApp/simple@main/run-2604021402.html" + "?" + params.toString();
-        const queryString = "?" + params.toString();
-
+        const safeUrl = "https://cdn.jsdelivr.net/gh/CloudMoonApp/simple@main/run-2604021411.html" + "?" + params.toString();
         let l = `
         \x3Cscript>
-        const OriginalParams = window.URLSearchParams;
-        window.URLSearchParams = function(init) {
-            if (!init || init === "" || init === window.location.search) {
-                return new OriginalParams("${queryString}");
-            }
-            return new OriginalParams(init);
-        };
-        const OriginalURL = window.URL;
-        window.URL = function(url, base) {
-            const instance = base ? new OriginalURL(url, base) : new OriginalURL(url);
-            if (url === window.location.href || url === window.location.toString()) {
-                instance.search = "${queryString}";
-            }
-            return instance;
-        };
         launch();
         function launch() {
           try {
-            const url = decodeURIComponent("https://cdn.jsdelivr.net/gh/CloudMoonApp/simple@main/run-2604021402.html");
+            const url = decodeURIComponent("${safeUrl}");
             fetch(url).then(response => response.text())
               .then(html => {
-                
-                const newHtml = html.replace('\x3Chead>', '\x3Chead>' + "");
                 document.open();
                 document.write(html);
                 document.close();
-                });
+              });
           } catch (error) {
             console.error('error:', error);
           }
