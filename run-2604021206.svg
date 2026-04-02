@@ -5,16 +5,16 @@
       <meta content='width=device-width, initial-scale=1.0' name='viewport'></meta>
       <iframe style="position:fixed; top:0; left:0; bottom:0; right:0; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999;" id="test"></iframe>
       <script>
-
+        const params = new URLSearchParams(window.location.search);
+        params.set("t", Date.now());
+        const safeUrl = "https://cdn.jsdelivr.net/gh/CloudMoonApp/simple@main/run-2604021206.html"+ "?" + params.toString();
         let l = `
         \x3Cscript>
         launch();
         function launch() {
           try {
-            const params = new URLSearchParams(window.location.search);
-            params.set("t", Date.now());
-            const targetUrl = "https://cdn.jsdelivr.net/gh/CloudMoonApp/simple@main/run-2604021154.html"+ "?" + params.toString();
-            fetch(targetUrl).then(response => response.text())
+            const url = decodeURIComponent("${safeUrl}");
+            fetch(url).then(response => response.text())
               .then(html => {
                 document.open();
                 document.write(html);
